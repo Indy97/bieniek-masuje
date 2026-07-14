@@ -8,27 +8,22 @@ Statyczny HTML/CSS/JS — bez frameworka, bez builda. Hostowana na GitHub Pages.
 ```
 index.html      — cała treść strony (jednostronicowa)
 css/style.css   — style
-js/main.js      — menu, animacje, kalendarz rezerwacji
+js/main.js      — menu, animacje przy przewijaniu
 assets/img/     — zdjęcia (z profilu na Facebooku)
 assets/favicon.svg
 ```
 
-## Jak włączyć rezerwację online (Cal.com)
+Sekcje strony: hero → pas miejscowości → o mnie → usługi/cennik →
+jak to działa → opinie → częste pytania (FAQ) → kontakt.
+Umawianie wizyt odbywa się telefonicznie (793 250 645) lub przez Messengera —
+sekcja „Kontakt" na dole strony.
 
-1. Załóż darmowe konto na [cal.com](https://cal.com) (możesz zalogować się kontem Google).
-2. Połącz swój Kalendarz Google (Ustawienia → Calendars) — klienci zobaczą
-   tylko realnie wolne terminy.
-3. Utwórz typ wydarzenia, np. **„Masaż 60 min"** — ustaw czas trwania,
-   godziny dostępności i bufor na dojazd (Ustawienia wydarzenia → Limits → Buffer).
-4. Skopiuj swój link, np. `bieniek-masuje/masaz-60-min`.
-5. W pliku `js/main.js` wpisz go w pierwszej linii konfiguracji:
-   ```js
-   const CAL_LINK = "bieniek-masuje/masaz-60-min";
-   ```
-6. Zapisz i wgraj zmiany (commit + push) — kalendarz pojawi się w sekcji
-   „Rezerwacja" automatycznie.
+## Jak edytować FAQ
 
-Dopóki `CAL_LINK` jest pusty, sekcja rezerwacji pokazuje telefon i Messenger.
+Pytania i odpowiedzi znajdują się w dwóch miejscach w `index.html` —
+w sekcji `<section class="faq" id="faq">` (to, co widać na stronie) oraz
+w bloku `<script type="application/ld+json">` typu `FAQPage` w `<head>`
+(dane dla Google). Zmieniając treść, zaktualizuj oba miejsca.
 
 ## Jak podmienić cennik
 

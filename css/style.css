@@ -630,45 +630,113 @@ body::before {
 
 @media (min-width: 860px) { .reviews__grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* ============ REZERWACJA ============ */
-.booking {
+/* ============ FAQ ============ */
+.faq { max-width: 860px; margin-inline: auto; }
+
+.faq__list {
+  display: grid;
+  gap: .9rem;
+  margin-top: 2.5rem;
+}
+
+.faq__item {
+  background: var(--cream);
+  border: 1px solid rgba(35, 49, 34, .08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow .25s ease;
+}
+.faq__item[open] { box-shadow: var(--shadow); }
+
+.faq__item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.4rem;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 500;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "+";
+  flex: none;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--amber);
+  transition: transform .25s ease;
+}
+.faq__item[open] summary::after { transform: rotate(45deg); }
+
+.faq__item p {
+  padding: 0 1.4rem 1.3rem;
+  font-size: .95rem;
+  color: rgba(35, 49, 34, .8);
+}
+
+/* ============ KONTAKT ============ */
+.contact {
   background: var(--linen-deep);
   text-align: center;
 }
 
-.booking .section__eyebrow,
-.booking .section__title { text-align: center; }
-
-.booking__lead {
+.contact__lead {
   max-width: 38rem;
   margin: 0 auto 2.5rem;
   color: rgba(35, 49, 34, .8);
 }
 
-.booking__panel {
+.contact__panel {
   max-width: 920px;
   margin-inline: auto;
   background: var(--cream);
   border-radius: calc(var(--radius) + 6px);
   box-shadow: var(--shadow);
   padding: clamp(1.5rem, 4vw, 3rem);
+  display: grid;
+  gap: 2.2rem;
+  align-items: center;
 }
 
-.booking__cal { min-height: 560px; }
+.contact__main { display: grid; justify-items: center; gap: .9rem; }
 
-.booking__fallback { display: grid; justify-items: center; gap: .9rem; padding: 1.5rem 0; }
-
-.booking__fallback-title {
+.contact__title {
   font-family: var(--font-display);
   font-size: 1.4rem;
 }
 
-.booking__fallback-or { font-size: .9rem; color: rgba(35, 49, 34, .6); }
+.contact__or { font-size: .9rem; color: rgba(35, 49, 34, .6); }
 
-.booking__fallback-note {
-  font-size: .82rem;
-  color: rgba(35, 49, 34, .5);
-  font-style: italic;
+.contact__facts {
+  list-style: none;
+  display: grid;
+  gap: 1.1rem;
+  text-align: left;
+}
+.contact__facts li {
+  position: relative;
+  padding-left: 1.7rem;
+  line-height: 1.45;
+}
+.contact__facts li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+}
+.contact__facts strong { display: block; }
+.contact__facts span { font-size: .88rem; color: rgba(35, 49, 34, .65); }
+
+@media (min-width: 860px) {
+  .contact__panel { grid-template-columns: 3fr 2fr; }
+  .contact__facts {
+    border-left: 1px dashed rgba(35, 49, 34, .2);
+    padding-left: 2.2rem;
+  }
 }
 
 /* ============ STOPKA ============ */
